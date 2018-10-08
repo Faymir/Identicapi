@@ -13,10 +13,6 @@ defmodule Identicapi.Api.Identicon do
   end
 
   def main(input, width, height) do
-    file = File.read("shit_happen.png")
-    file
-    |> IO.inspect
-
     input
       |> hash_input
       |> pick_color

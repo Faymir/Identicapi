@@ -11,7 +11,7 @@ function loadImage(requestUsername = undefined, url = 'http://localhost:4000/ide
     document.querySelector("#requestWidth").value = width.value+"/";
     document.querySelector("#requestHeight").value = height.value;
     
-    requestUrl = url + requestUsername + "/" + width.value + "/" + height.value;
+    requestUrl = url + requestUsername;
     document.querySelector("#request").value = requestUrl;
 
     let config = {

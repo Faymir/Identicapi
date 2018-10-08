@@ -21,7 +21,7 @@
                 <div class="form-row">
                     <div class="form-group col-sm-6">
                         <label for="request" class="text-center">Api Url</label>
-                        <input type="text" class="form-control text-left" readonly id="requestUrl" placeholder="http://localhost:4000/identicapi/">
+                        <input type="text" class="form-control text-left" readonly id="requestUrl" placeholder="https://identicapi.herokuapp.com/identicapi/">
                     </div>
                     <div class="form-group col-sm-2">
                         <label for="requestHeight" class="text-center">Username</label>
@@ -40,7 +40,7 @@
                     <i class="fas fa-arrow-down fa-3x"></i>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control text-center " readonly id="request" placeholder="http://localhost:4000/identicapi/">
+                    <input type="text" class="form-control text-center " readonly id="request" placeholder="https://identicapi.herokuapp.com/identicapi/">
                 </div>
             </div>
             <div class="form-group row">
@@ -71,12 +71,13 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
     <script>
         let random = true;
         let input = document.querySelector("#username");
-        loadImage(generateId(6));
+        let apiUrl = "https://identicapi.herokuapp.com/identicapi/";
+        loadImage(generateId(6), apiUrl);
         
         let interval = setInterval(() => {
             loadImage(generateId(10));
