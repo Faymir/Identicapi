@@ -79,9 +79,7 @@
         let apiUrl = "https://identicapi.herokuapp.com/identicapi/";
         loadImage(generateId(6), apiUrl);
         
-        let interval = setInterval(() => {
-            loadImage(generateId(10));
-        }, 1000);
+        let interval = null;
         
         document.querySelector("#toggle-interval").onclick = function () {
           interval = toogle_interval();  

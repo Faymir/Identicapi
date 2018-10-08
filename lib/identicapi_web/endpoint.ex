@@ -39,7 +39,7 @@ defmodule IdenticapiWeb.Endpoint do
 
     plug(
       Corsica,
-      origins: ["http://localhost", "null", "http://160.179.221.217", "160.179.221.217"],
+      origins: ["http://localhost", "null", "http://160.179.221.217", "160.179.221.217","*"],
       log: [rejected: :error, invalid: :warn, accepted: :debug],
       allow_headers: ["content-type", "cache-control"],
       allow_credentials: true

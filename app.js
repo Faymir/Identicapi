@@ -1,4 +1,4 @@
-function loadImage(requestUsername = undefined, url = 'http://localhost:4000/identicapi/') {
+function loadImage(requestUsername = undefined, url = 'https://identicapi.herokuapp.com/identicapi/') {
     if (requestUsername == undefined)
         requestUsername = input.value;
     else
@@ -11,13 +11,11 @@ function loadImage(requestUsername = undefined, url = 'http://localhost:4000/ide
     document.querySelector("#requestWidth").value = width.value+"/";
     document.querySelector("#requestHeight").value = height.value;
     
-    requestUrl = url + requestUsername;
+    requestUrl = url + requestUsername + "/" + width.value + "/" + height.value;
     document.querySelector("#request").value = requestUrl;
 
     let config = {
         headers: {
-            'cache-control': 'max-age=60',
-            'connection': 'close'
         }
     };
     axios.get(requestUrl, config)
