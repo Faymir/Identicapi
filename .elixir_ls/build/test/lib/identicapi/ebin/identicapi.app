@@ -1,7 +1,7 @@
 {application,identicapi,
              [{applications,[kernel,stdlib,elixir,logger,runtime_tools,
                              corsica,gettext,egd,phoenix_pubsub,cowboy,
-                             phoenix,postgrex,phoenix_ecto]},
+                             phoenix_html,phoenix,postgrex,phoenix_ecto]},
               {description,"identicapi"},
               {modules,['Elixir.Identicapi','Elixir.Identicapi.Api',
                         'Elixir.Identicapi.Api.Identicon',
