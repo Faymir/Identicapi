@@ -5,6 +5,7 @@ defmodule IdenticapiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  #for responses like {data: {image: "data:image/png..."}}
   scope "/json", IdenticapiWeb do
     pipe_through :api
     get("/:id/:width/:height", KernelController, :show)
