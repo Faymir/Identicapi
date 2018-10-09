@@ -83,12 +83,6 @@ defmodule Identicapi.Api.Identicon do
 
   def build_grid(%Identicon.Image{hex: hex} = image) do
 
-    #  IO.puts "++++++++++"
-    #  IO.inspect(my_chunk(hex, 3))
-    #  IO.puts "++++++++++"
-    #  IO.inspect(Enum.chunk_every(hex, 3) |> Enum.drop(-1))
-    #  IO.puts "==========="
-
     grid =
       hex
       |>  my_chunk(3)
@@ -107,27 +101,6 @@ defmodule Identicapi.Api.Identicon do
 
   def mirror_row([first, second, _tail] = row) do
     row ++ [second, first]
-  end
-
-  def new_mirror_row(img) do
-    IO.puts img.total
-    IO.inspect(div(img.total, 2))
-
-    my_chunk(img.hex, 3) |> Enum.map(
-      fn row ->
-       tail = Enum.reverse(row)
-      {tail, _} = Enum.split(tail, div(img.total,2))
-      row ++ tail
-      end
-    )
-
-    # tail =
-    # row
-    # |> Enum.reverse
-    # {tail, _} = Enum.split(tail, 3)
-    # # |> Enum.split(div(img.total, 2))
-
-    # row ++ tail
   end
 
   def pick_color(%Identicon.Image{hex: [r,g,b | _tail]} = image) do #%{hex: [r,g,b | _tail]} = image
