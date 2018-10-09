@@ -20,7 +20,6 @@ defmodule IdenticapiWeb.KernelController do
   # end
 
   def show(conn, %{"id" => id, "width" => width, "height" => height}) do
-    # kernel = Api.get_kernel!(id)
     image = genImage(id, width, height)
     render(conn, IdenticapiWeb.ImageView, "show.json", image: image)
   end
@@ -35,7 +34,7 @@ defmodule IdenticapiWeb.KernelController do
     eg: <img src="http://thisapiurl.com/image/{username}"> and directly see your image showing
   """
   def normal(conn, %{"id" => id, "width" => width, "height" => height}) do
-    image = genImage(id,width,height)
+    image = Api.Identicon.main(id,width, height)
 
     conn
     |> put_resp_header("content-type", "image/png")
@@ -50,6 +49,8 @@ defmodule IdenticapiWeb.KernelController do
     image =
     id
     |> Api.Identicon.main(width, height)
+    |> Base.encode64
+    "data:image/png;base64," <> image
   end
 
 

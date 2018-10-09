@@ -61,7 +61,7 @@
             </div>
             <div class="d-flex justify-content-center">
 
-                <img style="border-radius: 10px/10px;" id="myimg" src="http://localhost:4000/image/image.png" >
+                <img style="border-radius: 10px/10px;" id="myimg" src="http://localhost:4000/image/me" >
             </div>
             <br>
             <div class="d-flex justify-content-center">
@@ -74,17 +74,22 @@
     <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
     <script>
-        let random = true;
+        let random = false;
         let input = document.querySelector("#username");
-        let apiUrl = "http://localhost:4000/identicapi/";
+        let apiUrl = "http://localhost:4000/json/";
 
-        // loadImage(generateId(6), apiUrl);
+        //loadImage(generateId(6), apiUrl);
         
-        // let interval = null;
-        // let delay = 16; 
-        // document.querySelector("#toggle-interval").onclick = function () {
-        //   interval = toogle_interval(delay);  
-        // };
+        let interval = null;
+        let delay = 1000; 
+        document.querySelector("#toggle-interval").onclick = function () {
+          interval = toogle_interval2(delay, apiUrl);  
+        };
+
+
+        function newLoadImage(username, url = "http://localhost:4000/image/"){
+            document.getElementById("myimg").src = url + username;
+        }
         
         //console.log("=========END==========");
     </script>
