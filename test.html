@@ -61,7 +61,7 @@
             </div>
             <div class="d-flex justify-content-center">
 
-                <img style="border-radius: 10px/10px;" id="myimg" src="" alt="the Image">
+                <img style="border-radius: 10px/10px;" id="myimg" src="http://localhost:4000/image/image.png" >
             </div>
             <br>
             <div class="d-flex justify-content-center">
@@ -76,14 +76,15 @@
     <script>
         let random = true;
         let input = document.querySelector("#username");
-        let apiUrl = "https://identicapi.herokuapp.com/identicapi/";
-        loadImage(generateId(6), apiUrl);
+        let apiUrl = "http://localhost:4000/identicapi/";
+
+        // loadImage(generateId(6), apiUrl);
         
-        let interval = null;
-        
-        document.querySelector("#toggle-interval").onclick = function () {
-          interval = toogle_interval();  
-        };
+        // let interval = null;
+        // let delay = 16; 
+        // document.querySelector("#toggle-interval").onclick = function () {
+        //   interval = toogle_interval(delay);  
+        // };
         
         //console.log("=========END==========");
     </script>

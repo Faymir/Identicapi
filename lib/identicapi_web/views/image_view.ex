@@ -9,4 +9,8 @@ defmodule IdenticapiWeb.ImageView do
   def render("image.json", %{image: image}) do
     %{image: image}
   end
+
+  def render("normal.json", %{image: image}) do
+    image
+  end
 end

@@ -5,9 +5,15 @@ defmodule IdenticapiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/identicapi", IdenticapiWeb do
+  scope "/json", IdenticapiWeb do
     pipe_through :api
     get("/:id/:width/:height", KernelController, :show)
     get("/:id", KernelController, :show)
+  end
+
+  scope "/image", IdenticapiWeb do
+    pipe_through :api
+    get "/:id/:width/:height", KernelController, :normal
+    get "/:id", KernelController, :normal
   end
 end

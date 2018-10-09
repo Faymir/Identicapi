@@ -47,12 +47,12 @@ function generateId(len) {
     return Array.from(arr, dec2hex).join('')
 }
 
-function toogle_interval() {
+function toogle_interval(delay) {
     random = !random;
     if(random)
         return setInterval(() => {
             loadImage(generateId(10));
-        }, 1000);
+        }, delay);
     else{
         clearInterval(interval);
         return null;

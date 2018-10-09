@@ -21,21 +21,37 @@ defmodule IdenticapiWeb.KernelController do
 
   def show(conn, %{"id" => id, "width" => width, "height" => height}) do
     # kernel = Api.get_kernel!(id)
-    image =
-    id
-    |> Api.Identicon.main(width, height)
-    |> Base.encode64
-
-    conn
-    |> put_resp_header("cache-control", "max-age=60")
-    |> put_resp_header("connection", "close")
-
-    render(conn, IdenticapiWeb.ImageView, "show.json", image: "data:image/png;base64," <> image)
+    image = genImage(id, width, height)
+    render(conn, IdenticapiWeb.ImageView, "show.json", image: image)
   end
 
   def show(conn, %{"id" => id}) do
     show(conn, %{"id" => id, "width" => 250, "height" => 250})
   end
+
+  @doc """
+    This function is responsible of sending back to user a valid html5 image directly usable from img tag
+
+    eg: <img src="http://thisapiurl.com/image/{username}"> and directly see your image showing
+  """
+  def normal(conn, %{"id" => id, "width" => width, "height" => height}) do
+    image = genImage(id,width,height)
+
+    conn
+    |> put_resp_header("content-type", "image/png")
+    |> Plug.Conn.send_resp(200, image)
+  end
+
+  def normal(conn, %{"id" => id}) do
+    normal(conn, %{"id" => id, "width" => 250, "height" => 250})
+  end
+
+  defp genImage(id, width, height) do
+    image =
+    id
+    |> Api.Identicon.main(width, height)
+  end
+
 
   # def update(conn, %{"id" => id, "kernel" => kernel_params}) do
   #   kernel = Api.get_kernel!(id)
