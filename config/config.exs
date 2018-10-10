@@ -5,9 +5,6 @@
 # is restricted to this project.
 use Mix.Config
 
-# General application configuration
-config :identicapi,
-  ecto_repos: [Identicapi.Repo]
 
 # Configures the endpoint
 config :identicapi, IdenticapiWeb.Endpoint,

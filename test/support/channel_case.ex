@@ -27,10 +27,6 @@ defmodule IdenticapiWeb.ChannelCase do
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Identicapi.Repo)
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Identicapi.Repo, {:shared, self()})
-    end
     :ok
   end
 
