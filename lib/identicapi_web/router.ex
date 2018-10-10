@@ -9,12 +9,12 @@ defmodule IdenticapiWeb.Router do
   scope "/json", IdenticapiWeb do
     pipe_through :api
     get("/:id/:width/:height", KernelController, :create)
-    get("/:id", KernelController, :show)
+    get("/:id", KernelController, :create)
   end
 
   scope "/img", IdenticapiWeb do
     pipe_through :api
     get "/:id/:width/:height", KernelController, :show
-    get "/:id", KernelController, :normal
+    get "/:id", KernelController, :show
   end
 end
