@@ -1,5 +1,8 @@
 # Identicapi
+An application that permit to genarate Identicons and serve them trought an api on a web Server. You can try it on https://identicapi.herokuapp.com/img/yourname . 
+Written with Elixir and Phoenix.
 
+# Config
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
@@ -11,8 +14,4 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 
 ## Learn more
   * My Website: https://faymir.fr
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+  * Phoenix website: http://www.phoenixframework.org/
